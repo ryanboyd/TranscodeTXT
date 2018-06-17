@@ -1,0 +1,1 @@
+Simple program to transcode .txt files from one encoding to another.
