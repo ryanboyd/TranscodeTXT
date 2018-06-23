@@ -96,6 +96,7 @@ namespace WindowsFormsApplication1
                                     StartButton.Enabled = false;
                                     ScanSubfolderCheckbox.Enabled = false;
                                     InputEncodingDropdown.Enabled = false;
+                                    OutputEncodingDropdown.Enabled = false;
                                     FileTypeTextbox.Enabled = false;
                             
                                     BgWorker.RunWorkerAsync(DictData);
@@ -225,6 +226,7 @@ namespace WindowsFormsApplication1
             StartButton.Enabled = true;
             ScanSubfolderCheckbox.Enabled = true;
             InputEncodingDropdown.Enabled = true;
+            OutputEncodingDropdown.Enabled = true;
             FileTypeTextbox.Enabled = true;
             FilenameLabel.Text = "Finished!";
             MessageBox.Show("TranscodeTXT has finished processing your texts.", "Transcode Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
