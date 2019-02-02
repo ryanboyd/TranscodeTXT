@@ -36,12 +36,13 @@
             this.InputEncodingDropdown = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.FileTypeTextbox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ScanSubfolderCheckbox = new System.Windows.Forms.CheckBox();
             this.OutputEncodingDropdown = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.saveOutputDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.FileTypeTextbox = new System.Windows.Forms.TextBox();
+            this.NulTerminatedFixCheckbox = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +54,7 @@
             // StartButton
             // 
             this.StartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartButton.Location = new System.Drawing.Point(70, 247);
+            this.StartButton.Location = new System.Drawing.Point(70, 280);
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(152, 32);
             this.StartButton.TabIndex = 3;
@@ -70,7 +71,7 @@
             // 
             this.FilenameLabel.AutoEllipsis = true;
             this.FilenameLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FilenameLabel.Location = new System.Drawing.Point(12, 298);
+            this.FilenameLabel.Location = new System.Drawing.Point(12, 322);
             this.FilenameLabel.Name = "FilenameLabel";
             this.FilenameLabel.Size = new System.Drawing.Size(260, 15);
             this.FilenameLabel.TabIndex = 6;
@@ -99,6 +100,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.NulTerminatedFixCheckbox);
             this.groupBox2.Controls.Add(this.FileTypeTextbox);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.ScanSubfolderCheckbox);
@@ -109,16 +111,25 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(260, 211);
+            this.groupBox2.Size = new System.Drawing.Size(260, 249);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Encoding Selection";
+            // 
+            // FileTypeTextbox
+            // 
+            this.FileTypeTextbox.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FileTypeTextbox.Location = new System.Drawing.Point(6, 162);
+            this.FileTypeTextbox.Name = "FileTypeTextbox";
+            this.FileTypeTextbox.Size = new System.Drawing.Size(100, 26);
+            this.FileTypeTextbox.TabIndex = 16;
+            this.FileTypeTextbox.Text = "*.txt";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 143);
+            this.label2.Location = new System.Drawing.Point(3, 144);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 15);
             this.label2.TabIndex = 15;
@@ -127,7 +138,8 @@
             // ScanSubfolderCheckbox
             // 
             this.ScanSubfolderCheckbox.AutoSize = true;
-            this.ScanSubfolderCheckbox.Location = new System.Drawing.Point(128, 165);
+            this.ScanSubfolderCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ScanSubfolderCheckbox.Location = new System.Drawing.Point(128, 166);
             this.ScanSubfolderCheckbox.Name = "ScanSubfolderCheckbox";
             this.ScanSubfolderCheckbox.Size = new System.Drawing.Size(126, 20);
             this.ScanSubfolderCheckbox.TabIndex = 13;
@@ -154,29 +166,31 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Output File Encoding:";
             // 
-            // FileTypeTextbox
+            // NulTerminatedFixCheckbox
             // 
-            this.FileTypeTextbox.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FileTypeTextbox.Location = new System.Drawing.Point(6, 161);
-            this.FileTypeTextbox.Name = "FileTypeTextbox";
-            this.FileTypeTextbox.Size = new System.Drawing.Size(100, 26);
-            this.FileTypeTextbox.TabIndex = 16;
-            this.FileTypeTextbox.Text = "*.txt";
+            this.NulTerminatedFixCheckbox.AutoSize = true;
+            this.NulTerminatedFixCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NulTerminatedFixCheckbox.Location = new System.Drawing.Point(6, 210);
+            this.NulTerminatedFixCheckbox.Name = "NulTerminatedFixCheckbox";
+            this.NulTerminatedFixCheckbox.Size = new System.Drawing.Size(201, 20);
+            this.NulTerminatedFixCheckbox.TabIndex = 17;
+            this.NulTerminatedFixCheckbox.Text = "Fix Null Termination in Strings";
+            this.NulTerminatedFixCheckbox.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumPurple;
-            this.ClientSize = new System.Drawing.Size(284, 321);
+            this.ClientSize = new System.Drawing.Size(284, 346);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.FilenameLabel);
             this.Controls.Add(this.StartButton);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(300, 360);
-            this.MinimumSize = new System.Drawing.Size(300, 360);
+            this.MaximumSize = new System.Drawing.Size(300, 385);
+            this.MinimumSize = new System.Drawing.Size(300, 385);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TranscodeTXT";
@@ -200,6 +214,7 @@
         private System.Windows.Forms.CheckBox ScanSubfolderCheckbox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox FileTypeTextbox;
+        private System.Windows.Forms.CheckBox NulTerminatedFixCheckbox;
     }
 }
 

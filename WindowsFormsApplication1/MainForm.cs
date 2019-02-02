@@ -87,6 +87,7 @@ namespace WindowsFormsApplication1
 
                                 DictData.OutputFileLocation = saveOutputDialog.SelectedPath;
                                 DictData.FileExtension = FileTypeTextbox.Text.Trim();
+                                DictData.FixNULtermination = NulTerminatedFixCheckbox.Checked;
 
 
                                 if (DictData.OutputFileLocation != "") {
@@ -94,6 +95,7 @@ namespace WindowsFormsApplication1
 
 
                                     StartButton.Enabled = false;
+                                    NulTerminatedFixCheckbox.Enabled = false;
                                     ScanSubfolderCheckbox.Enabled = false;
                                     InputEncodingDropdown.Enabled = false;
                                     OutputEncodingDropdown.Enabled = false;
@@ -155,6 +157,8 @@ namespace WindowsFormsApplication1
 
                     string SubDirStructure = Path.GetDirectoryName(fileName).Replace(DictData.TextFileFolder, "").TrimStart('\\');
 
+                    
+
 
                     //creates subdirs if they don't exist
                     string Output_Location = DictData.OutputFileLocation + '\\' + SubDirStructure;
@@ -197,7 +201,9 @@ namespace WindowsFormsApplication1
                     {
 
                         string readText = inputfile.ReadToEnd();
-                    
+
+                        if (DictData.FixNULtermination) readText = string.Join("", readText.Split(new char[] { '\0' }, StringSplitOptions.RemoveEmptyEntries));
+
                         //open up the output file
                         using (StreamWriter outputFile = new StreamWriter(new FileStream(Output_Location, FileMode.Create), OutputSelectedEncoding))
                         {
@@ -228,6 +234,7 @@ namespace WindowsFormsApplication1
             InputEncodingDropdown.Enabled = true;
             OutputEncodingDropdown.Enabled = true;
             FileTypeTextbox.Enabled = true;
+            NulTerminatedFixCheckbox.Enabled = true;
             FilenameLabel.Text = "Finished!";
             MessageBox.Show("TranscodeTXT has finished processing your texts.", "Transcode Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -244,7 +251,7 @@ namespace WindowsFormsApplication1
             public string TextFileFolder { get; set; }
             public string OutputFileLocation { get; set; }
             public string FileExtension { get; set; }
-
+            public bool FixNULtermination { get; set; }
         }
 
 
